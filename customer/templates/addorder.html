@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>add order</title>
+    </head>
+    <body>
+       <form method='POST'>
+        {% csrf_token %}
+        <lable for="id">id</label>
+        <input type="text" name="id" required><br><br>
+        <lable  for="name">orname</label>
+        <input type="text" name="name" required><br><br>
+
+        <select name="userid">
+        {% for x in data1 %}
+        <option value="{{x.id}}">{{x.name}}</option>
+        {% endfor %}
+        </select>
+        <button type="submit">submit</button><br>
+        <form>
+    </body>
+</html>

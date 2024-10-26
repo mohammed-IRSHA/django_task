@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>order list</title>
+    </head>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="search" id="search" name="search" placeholder="search" required>
+        <button type="submitt">submitt</button>
+    </form>
+    <body>
+        <table border=2>
+         <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>customer</th>
+            <th>delete</th>
+            <th>update</th>
+         </tr>
+         <tr>
+            {% for x in my %}
+            <td>{{x.orid}}</td>
+            <td>{{x.orname}}</td>
+            <td>{{x.cust}}</td>
+            <td><a href="{% url 'delete' x.orid %}">delete </a></td>
+            <td><a href="{% url 'update' x.orid%}">update</a></td>
+         </tr>
+         {% endfor %}
+        </table>
+   
+    <body>
+</html>
